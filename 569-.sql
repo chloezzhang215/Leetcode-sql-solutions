@@ -14,8 +14,6 @@ FROM Employee
 WHERE ranking>=cnt/2 AND ranking<=cnt/2+1
 
 
-
-
 --#570. Managers with at Least 5 Direct Reports
 /*
 Write an SQL query to report the managers with at least five direct reports.
