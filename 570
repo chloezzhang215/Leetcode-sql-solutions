@@ -10,6 +10,3 @@ SELECT a.name
 FROM Employee a JOIN Employee b ON (b.ManagerId=a.Id)
 GROUP BY b.ManagerId
 HAVING COUNT(b.ManagerId)>=5
-
-SELECT matchid, player FROM goal
-WHERE teamid = 'GER'
