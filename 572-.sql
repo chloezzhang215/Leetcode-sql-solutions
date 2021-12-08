@@ -1,10 +1,13 @@
---#569. Median Employee Salary
+--#569. Winning Candidate
 /*
-Write an SQL query to find the median salary of each company.
+Write an SQL query to report the name of the winning candidate (i.e., the candidate who got the largest number of votes).
+
+
 */
 SELECT name
-FROM Candidate RIGHT JOIN Vote ON (Candidate.id = Vote.candidateId)
-GROUP BY name
-HAVING COUNT(name) >=
-ALL(SELECT COUNT(name)
-FROM Candidate RIGHT JOIN Vote ON (Candidate.id = Vote.candidateId))
+FROM Candidate
+WHERE Candidate.id = 
+(SELECT candidateId FROM Vote
+GROUP BY candidateId
+ORDER BY COUNT(candidateId) DESC 
+LIMIT 1)
