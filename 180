@@ -1,0 +1,10 @@
+
+
+
+SELECT DISTINCT Num AS ConsecutiveNums FROM(
+    SELECT Num,COUNT(1) FROM 
+    (SELECT Id, Num, 
+    ROW_NUMBER()over(order by Id) -
+    ROW_NUMBER() over(partition by Num order by Id) as subsequence
+    FROM Logs) AS sub
+    GROUP BY Num,subsequence HAVING COUNT(1) >= 3) a
