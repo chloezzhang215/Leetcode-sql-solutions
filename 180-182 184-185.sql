@@ -35,6 +35,19 @@ GROUP BY email
 HAVING COUNT(*) > 1)a
 
 
+--#184.  Department Highest Salary
+/*
+Write an SQL query to find employees who have the highest salary in each of the departments.
+
+*/
+SELECT Department,Employee,Salary
+FROM
+(SELECT b.Name AS Department, a.Name AS Employee,Salary,
+dense_rank()over(partition by b.Name order by Salary desc) AS ranking
+FROM Employee a LEFT JOIN Department b ON (a.DepartmentId=b.Id))sub
+WHERE ranking = 1
+
+
 --#185.  Department Top Three Salaries
 /*
 A company's executives are interested in seeing who earns the most money in each of the company's departments. 
