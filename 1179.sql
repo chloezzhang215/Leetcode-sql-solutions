@@ -1,3 +1,8 @@
+--#1179. Reformat Department Table
+/*
+Write an SQL query to reformat the table such that there is a department id column and a revenue column for each month.
+
+*/
 
 select id,
     sum(case month when 'Jan' then revenue end) as Jan_Revenue,
