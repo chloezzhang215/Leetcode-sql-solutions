@@ -12,7 +12,7 @@ LIMIT 1 OFFSET 1),null)
 AS SecondHighestSalary
 
 
---#176. Nth Highest Salary
+--#177. Nth Highest Salary
 /*
 Write an SQL query to report the nth highest salary from the Employee table. If there is no nth highest salary, the query should report null.
 
@@ -33,4 +33,12 @@ BEGIN
   );
 END
 
+
+--#178. Rank Scores
+/*
+Write an SQL query to rank the scores. 
+
+*/
+SELECT score, dense_rank()over(order by score desc) AS 'rank' 
+FROM Scores
 
