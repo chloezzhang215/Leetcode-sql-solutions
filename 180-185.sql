@@ -35,6 +35,16 @@ GROUP BY email
 HAVING COUNT(*) > 1)a
 
 
+--#183.  Duplicate Emails
+/*
+Write an SQL query to report all customers who never order anything.
+
+*/
+SELECT a.name AS Customers
+FROM Customers a LEFT JOIN Orders b ON (a.id=b.customerId)
+WHERE b.customerId IS NULL
+
+
 --#184.  Department Highest Salary
 /*
 Write an SQL query to find employees who have the highest salary in each of the departments.
