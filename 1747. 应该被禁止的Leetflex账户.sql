@@ -1,4 +1,4 @@
---#1709. 应该被禁止的Leetflex账户
+--#1747. 应该被禁止的Leetflex账户
 /*
 Write an SQL query to find the account_id of the accounts that should be banned from Leetflex. 
 An account should be banned if it was logged in at some moment from two different IP addresses.
