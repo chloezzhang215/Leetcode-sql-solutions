@@ -3,10 +3,7 @@
 /*
 Write an SQL query to find all numbers that appear at least three times consecutively.
 */
-SELECT DISTINCT Num AS ConsecutiveNums FROM(
-    SELECT Num,COUNT(*) FROM 
-    (SELECT Id, Num, 
-    ROW_NUMBER()over(order by Id) -
-    ROW_NUMBER() over(partition by Num order by Id) as subsequence
-    FROM Logs) AS sub
-    GROUP BY Num,subsequence HAVING COUNT(*) >= 3) a
+
+SELECT DISTINCT a.num AS ConsecutiveNums
+FROM Logs a,Logs b,Logs c
+WHERE a.id = b.id-1 AND b.id = c.id-1 AND a.num = b.num AND b.num = c.num
