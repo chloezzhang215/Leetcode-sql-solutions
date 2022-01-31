@@ -4,7 +4,7 @@ Write an SQL query to display the records with three or more rows with consecuti
 
 */
 SELECT id, visit_date, people FROM
-(SELECT *,COUNT(*)over(partition by sequence) AS cnt FROM
-(SELECT *,id-row_number()over(order by id) AS sequence FROM Stadium
-WHERE people >= 100)A)B
-WHERE cnt>2
+(SELECT *, COUNT(*)over(partition by ranking) AS cnt FROM
+(SELECT *, id - row_number()over(order by id) AS ranking FROM Stadium WHERE people>=100)a)b
+WHERE cnt>=3
+ORDER BY visit_date
