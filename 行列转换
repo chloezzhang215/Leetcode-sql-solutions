@@ -14,3 +14,6 @@ FROM student2 GROUP BY NAME
 UNION
 SELECT NAME,'英语' AS subject,MAX("英语") AS score
 FROM student2 GROUP BY NAME
+
+
+https://leetcode-cn.com/problems/students-report-by-geography/solution/zong-jie-ge-lei-biao-ge-ge-shi-hua-wen-t-tl4e/
